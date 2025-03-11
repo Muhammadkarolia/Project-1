@@ -184,7 +184,6 @@ Unloading 5937 unused Assets / (7.0 MB). Loaded Objects now: 6577.
 Memory consumption went from 151.6 MB to 144.6 MB.
 Total: 26.426500 ms (FindLiveObjects: 2.341000 ms CreateObjectMapping: 3.618700 ms MarkObjects: 10.211600 ms  DeleteObjects: 10.252900 ms)
 
-Prepare: number of updated asset objects reloaded= 0
 ========================================================================
 Received Import Request.
   Time since last request: 932402.754587 seconds.
