@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Git repo\\Project-1\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{75AC4C40-F16B-156B-5A80-9157E3301C82}|Assembly-CSharp.csproj|c:\\git repo\\project-1\\project1\\assets\\scrips\\buidling button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75AC4C40-F16B-156B-5A80-9157E3301C82}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\buidling button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{75AC4C40-F16B-156B-5A80-9157E3301C82}|Assembly-CSharp.csproj|c:\\git repo\\project-1\\project1\\assets\\scrips\\cameradrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{75AC4C40-F16B-156B-5A80-9157E3301C82}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\cameradrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,19 +23,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Buidling Button.cs",
-              "DocumentMoniker": "C:\\Git repo\\Project-1\\Project1\\Assets\\Scrips\\Buidling Button.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\Buidling Button.cs",
-              "ToolTip": "C:\\Git repo\\Project-1\\Project1\\Assets\\Scrips\\Buidling Button.cs",
-              "RelativeToolTip": "Assets\\Scrips\\Buidling Button.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T14:36:36.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "CameraDrag.cs",
               "DocumentMoniker": "C:\\Git repo\\Project-1\\Project1\\Assets\\Scrips\\CameraDrag.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\CameraDrag.cs",
