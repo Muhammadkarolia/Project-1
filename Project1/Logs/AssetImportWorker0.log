@@ -165,22 +165,78 @@ Domain Reload Profiling: 3408ms
 	FinalizeReload (1640ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1307ms)
+		SetupLoadedEditorAssemblies (2976ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (5ms)
-			SetLoadedEditorAssemblies (7ms)
-			BeforeProcessingInitializeOnLoad (191ms)
-			ProcessInitializeOnLoadAttributes (978ms)
-			ProcessInitializeOnLoadMethodAttributes (118ms)
-			AfterProcessingInitializeOnLoad (8ms)
-			EditorAssembliesLoaded (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (199ms)
+			ProcessInitializeOnLoadAttributes (1391ms)
+			ProcessInitializeOnLoadMethodAttributes (1360ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 1.82 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (23ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 3.39 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 198 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 5937 unused Assets / (6.7 MB). Loaded Objects now: 6578.
-Memory consumption went from 151.8 MB to 145.1 MB.
-Total: 18.919700 ms (FindLiveObjects: 1.768500 ms CreateObjectMapping: 1.947800 ms MarkObjects: 6.949600 ms  DeleteObjects: 8.252100 ms)
+Unloading 212 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5936 unused Assets / (5.9 MB). Loaded Objects now: 6591.
+Memory consumption went from 156.1 MB to 150.2 MB.
+Total: 34.939000 ms (FindLiveObjects: 3.221400 ms CreateObjectMapping: 3.467500 ms MarkObjects: 14.573000 ms  DeleteObjects: 13.674500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 79476.608575 seconds.
+  path: Assets/Assets/Images/Build Button Images/School icon.png
+  artifactKey: Guid(01a9ab23141533f47a84bd2b971e8a40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Images/Build Button Images/School icon.png using Guid(01a9ab23141533f47a84bd2b971e8a40) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '294f25aca771f81c09fbc19613b96a8a') in 11.6119041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/Assets/Images/Build Button Images/housing icon.png
+  artifactKey: Guid(68dafed72bbccb34591dff36a4612502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Images/Build Button Images/housing icon.png using Guid(68dafed72bbccb34591dff36a4612502) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bd41ff16393a766f283220574083e95c') in 0.0625147 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Assets/Images/Build Button Images/Fire Station png.png
+  artifactKey: Guid(449a18a30efa64041aa00888e73480fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Images/Build Button Images/Fire Station png.png using Guid(449a18a30efa64041aa00888e73480fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6e5d223b666fad9d7f03a4c0e8683eba') in 0.053656 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Assets/Images/Build Button Images/Hammer and Screwdriver.png
+  artifactKey: Guid(ea4c55454c5dbd349874137ac2330d40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Images/Build Button Images/Hammer and Screwdriver.png using Guid(ea4c55454c5dbd349874137ac2330d40) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '72c4856e27ebaa5186db9acf119d3592') in 0.0891719 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Assets
+  artifactKey: Guid(5c07c2a5e6d113c468bc5694c0c4c6b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets using Guid(5c07c2a5e6d113c468bc5694c0c4c6b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e3923bb0c942b3c074c1adecc49c125') in 0.0045514 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Assets/Images/Build Button Images/Office icon.png
+  artifactKey: Guid(d5080b95dca3f2a4690927bd7afdfe08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Images/Build Button Images/Office icon.png using Guid(d5080b95dca3f2a4690927bd7afdfe08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3c79ab9bbf9ec8da8f83a34974e51bae') in 0.039867 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.528873 seconds.
+  path: Assets/Assets/Images/Build Button Images/Bin Icon.png
+  artifactKey: Guid(cde6ee86375c1ab469bac3ccfb058696) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Images/Build Button Images/Bin Icon.png using Guid(cde6ee86375c1ab469bac3ccfb058696) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '48fa7c6361d20e5d277b23ba26d1042a') in 0.0122108 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
 
