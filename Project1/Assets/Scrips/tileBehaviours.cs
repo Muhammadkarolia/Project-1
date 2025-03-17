@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class tileBehaviours : MonoBehaviour
@@ -74,6 +75,7 @@ public class tileBehaviours : MonoBehaviour
             occupied = true;
             Unselect();
             hovered = false;
+            transform.Find("/Main Camera").gameObject.SendMessage("FlagConstruct");
         }
     }
     void DeconstructBuilding()
