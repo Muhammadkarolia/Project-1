@@ -21,14 +21,28 @@ public class rayCast : MonoBehaviour
             {
                 if (firstHover)//note that this variable is inverted from what would be expected
                 {
-                    previousHover.parent.gameObject.SendMessage("Unhover");
+                    if (previousHover.gameObject.CompareTag("forward ray interaction"))
+                    {
+                        previousHover.parent.gameObject.SendMessage("Unhover");
+                    }
+                    else
+                    {
+                        previousHover.gameObject.SendMessage("Unhover");
+                    }
                 }
                 else
                 {
                     firstHover = true;
                 }
-                hilight.parent.gameObject.SendMessage("Hover");
-                previousHover = hilight;
+                if (hilight.gameObject.CompareTag("forward ray interaction"))
+                {
+                    hilight.parent.gameObject.SendMessage("Hover");
+                }
+                else
+                {
+                    hilight.gameObject.SendMessage("Hover");
+                }
+                    previousHover = hilight;
 
             }
 
@@ -41,16 +55,23 @@ public class rayCast : MonoBehaviour
                 selection = raycastHit.transform;
                 if (selection != previousSelect)
                 {
-                    if (firstSelect)
+                    if (firstSelect && !Input.GetKey(KeyCode.LeftShift))
                     {
-                        previousSelect.parent.gameObject.SendMessage("Unselect");
+                        GameObject.Find("/placed objects").BroadcastMessage("Unselect");
                     }
                     else
                     {
                         firstSelect = true;
                     }
-                    selection.parent.gameObject.SendMessage("Select");
-                    previousSelect = selection;
+                    if (selection.gameObject.CompareTag("forward ray interaction"))
+                    {
+                        selection.parent.gameObject.SendMessage("Select");
+                    }
+                    else
+                    {
+                        selection.gameObject.SendMessage("Select");
+                    }
+                        previousSelect = selection;
                     
                 }
             }

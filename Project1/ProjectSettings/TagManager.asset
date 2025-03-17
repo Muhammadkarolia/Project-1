@@ -7,6 +7,7 @@ TagManager:
   - Mat Panel
   - Build Panel
   - Selectable
+  - forward ray interaction
   layers:
   - Default
   - TransparentFX

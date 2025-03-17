@@ -49,6 +49,10 @@ public class tileBehaviours : MonoBehaviour
             tile.GetComponent<Renderer>().material = selectionMaterial;
             selected = true;
         }
+        else
+        {
+            Unselect();
+        }
 
     }
     void Unselect()
@@ -73,6 +77,8 @@ public class tileBehaviours : MonoBehaviour
             standardMaterial = tile.GetComponent<Renderer>().material;
             tile.SetActive(true);
             occupied = true;
+            selected = false;
+            hovered = false;
         }
     }
     void DeconstructBuilding()
