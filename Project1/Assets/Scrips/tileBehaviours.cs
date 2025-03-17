@@ -3,9 +3,8 @@ using UnityEngine;
 public class tileBehaviours : MonoBehaviour
 {
     public Material hilightMaterial;
-    public Material selectionMaterial;
-
-    private GameObject concreteTile;
+    public Material selectionMaterial; 
+    public Material concrete;
     private GameObject treeTrunk;
     private GameObject treeLeaves;
     private bool hovered;
@@ -18,7 +17,6 @@ public class tileBehaviours : MonoBehaviour
     void Awake()
     {
         tile = transform.Find("natural tile").gameObject;
-        concreteTile = transform.Find("concrete tile").gameObject;
         treeTrunk = transform.Find("tree trunk").gameObject;
         treeLeaves = transform.Find("tree leaves").gameObject;
     }
@@ -72,12 +70,9 @@ public class tileBehaviours : MonoBehaviour
             currentBuilding.SetActive(true);
             treeTrunk.SetActive(false);
             treeLeaves.SetActive(false);
-            tile.SetActive(false);
-            tile = concreteTile;
-            standardMaterial = tile.GetComponent<Renderer>().material;
-            tile.SetActive(true);
+            standardMaterial = concrete;
             occupied = true;
-            selected = false;
+            Unselect();
             hovered = false;
         }
     }
@@ -87,6 +82,8 @@ public class tileBehaviours : MonoBehaviour
         { 
             currentBuilding.SetActive(false);
             occupied = false;
+            Unselect();
+            Unhover();
         }
     }
 }
