@@ -4,6 +4,6 @@ public class roadButtonBehaviour : MonoBehaviour
 {
     public void OnButtonClicked()
     {
-        GameObject.Find("/placed objects/roads").BroadcastMessage("ConstructRoad");
+        GameObject.Find("/placed objects").BroadcastMessage("ConstructRoad");
     }
 }

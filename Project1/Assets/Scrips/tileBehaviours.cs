@@ -1,32 +1,43 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class tileBehaviours : MonoBehaviour
 {
     public Material hilightMaterial;
     public Material selectionMaterial; 
     public Material concrete;
-    private GameObject treeTrunk;
-    private GameObject treeLeaves;
+    private GameObject tree;
     private bool hovered;
     private bool selected;
     private Material standardMaterial;
     private GameObject buildingObject;
     private GameObject tile;
     private GameObject currentBuilding;
+    private int woodAvailable;
     private bool occupied;
-    void Awake()
+    public TMP_Text popup;
+    private TMP_Text popupInstance;
+    void Start()
     {
         tile = transform.Find("natural tile").gameObject;
-        treeTrunk = transform.Find("tree trunk").gameObject;
-        treeLeaves = transform.Find("tree leaves").gameObject;
+        woodAvailable = Random.Range(20, 100);
+        if (woodAvailable <75)
+        {
+            tree = transform.Find("tree").gameObject;
+        }
+        else
+        {
+            tree = transform.Find("large tree").gameObject;
+        }
+        tree.SetActive(true);
+            
     }
     void Hover()
     {
         if (!hovered && !selected)
         {
             standardMaterial = tile.GetComponent<Renderer>().material;
-            tile = transform.Find("natural tile").gameObject;
             tile.GetComponent<Renderer>().material = hilightMaterial;
             hovered = true;
         }
@@ -67,10 +78,17 @@ public class tileBehaviours : MonoBehaviour
     {
         if (selected && !occupied)
         {
+            if (woodAvailable > 0)
+            {
+
+                popupInstance = Instantiate(popup, this.transform);
+                transform.Find("/Management System").gameObject.SendMessage("addWood", woodAvailable);
+                popupInstance.text = "+ " + woodAvailable.ToString() + " Wood";
+                woodAvailable = 0;
+            }
             currentBuilding = transform.Find(building).gameObject;
             currentBuilding.SetActive(true);
-            treeTrunk.SetActive(false);
-            treeLeaves.SetActive(false);
+            tree.SetActive(false);
             standardMaterial = concrete;
             occupied = true;
             Unselect();
@@ -80,12 +98,28 @@ public class tileBehaviours : MonoBehaviour
     }
     void DeconstructBuilding()
     {
-        if (selected && occupied)
+        if (selected)
         { 
-            currentBuilding.SetActive(false);
-            occupied = false;
+            if (occupied)
+            {
+                currentBuilding.SetActive(false);
+                occupied = false;
+            }
+            else
+            {
+                if (woodAvailable > 0)
+                {
+                    tree.SetActive(false);
+                    popupInstance = Instantiate(popup, this.transform);
+                    transform.Find("/Management System").gameObject.SendMessage("addWood", woodAvailable);
+                    popupInstance.text = "+ " + woodAvailable.ToString() + " Wood";
+                    woodAvailable = 0;
+                }
+            }
+            transform.Find("/Main Camera").gameObject.SendMessage("FlagConstruct");
             Unselect();
             Unhover();
+
         }
     }
 }

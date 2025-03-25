@@ -12,7 +12,7 @@ public class RoadScript : MonoBehaviour
     private Material standardMaterial;
     private bool occupied;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         roadSurface = transform.Find("road surface").gameObject;
         standardMaterial = roadSurface.GetComponent<Renderer>().material;

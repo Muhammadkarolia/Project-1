@@ -9,13 +9,8 @@ public class rayCast : MonoBehaviour
     private Transform previousSelect;
     private bool firstHover;
     private bool firstSelect;
-    private bool constructionFlag1;
-    private bool constructionFlag2;
-
-    void FlagConstruct()
-    {
-        constructionFlag1 = constructionFlag2 = true;
-    }
+    private bool clickComplete;
+    private bool hoverEnded;
     // Update is called once per frame
     void Update()
     {
@@ -23,8 +18,9 @@ public class rayCast : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
         {
             hilight = raycastHit.transform;
-            if (hilight != previousHover || constructionFlag1)
+            if (hilight != previousHover|| hoverEnded)
             {
+                hoverEnded = false;
                 if (firstHover)//note that this variable is inverted from what would be expected
                 {
                     if (previousHover.gameObject.CompareTag("forward ray interaction"))
@@ -40,7 +36,6 @@ public class rayCast : MonoBehaviour
                 {
                     firstHover = true;
                 }
-                constructionFlag1 = false;
                 if (hilight.gameObject.CompareTag("forward ray interaction"))
                 {
                     hilight.parent.gameObject.SendMessage("Hover");
@@ -60,9 +55,9 @@ public class rayCast : MonoBehaviour
             if (Physics.Raycast(ray, out raycastHit))
             {
                 selection = raycastHit.transform;
-                if (selection != previousSelect || constructionFlag2)
+                if (selection != previousSelect || clickComplete)
                 {
-                    constructionFlag2 = false;
+                    clickComplete = false;
                     if (firstSelect && !Input.GetKey(KeyCode.LeftShift))
                     {
                         GameObject.Find("/placed objects").BroadcastMessage("Unselect");
@@ -83,6 +78,15 @@ public class rayCast : MonoBehaviour
                     
                 }
             }
+        }
+        else
+        {
+            if (EventSystem.current.IsPointerOverGameObject() || !Physics.Raycast(ray, out raycastHit))
+            {
+                GameObject.Find("/placed objects").BroadcastMessage("Unhover");
+                hoverEnded = true;
+            }
+            clickComplete = true;
         }
     }
 }
