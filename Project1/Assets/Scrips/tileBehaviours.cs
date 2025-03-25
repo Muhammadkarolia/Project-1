@@ -93,7 +93,6 @@ public class tileBehaviours : MonoBehaviour
             occupied = true;
             Unselect();
             hovered = false;
-            transform.Find("/Main Camera").gameObject.SendMessage("FlagConstruct");
         }
     }
     void DeconstructBuilding()
@@ -116,9 +115,7 @@ public class tileBehaviours : MonoBehaviour
                     woodAvailable = 0;
                 }
             }
-            transform.Find("/Main Camera").gameObject.SendMessage("FlagConstruct");
             Unselect();
-            Unhover();
 
         }
     }
