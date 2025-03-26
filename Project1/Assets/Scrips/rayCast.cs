@@ -23,29 +23,14 @@ public class rayCast : MonoBehaviour
                 hoverEnded = false;
                 if (firstHover)//note that this variable is inverted from what would be expected
                 {
-                    if (previousHover.gameObject.CompareTag("forward ray interaction"))
-                    {
-                        previousHover.parent.gameObject.SendMessage("Unhover");
-                    }
-                    else
-                    {
-                        previousHover.gameObject.SendMessage("Unhover");
-                    }
+                    previousHover.parent.gameObject.SendMessage("Unhover");
                 }
                 else
                 {
                     firstHover = true;
                 }
-                if (hilight.gameObject.CompareTag("forward ray interaction"))
-                {
-                    hilight.parent.gameObject.SendMessage("Hover");
-                }
-                else
-                {
-                    hilight.gameObject.SendMessage("Hover");
-                }
-                    previousHover = hilight;
-
+                hilight.parent.gameObject.SendMessage("Hover");
+                previousHover = hilight;
             }
 
         }
@@ -66,15 +51,8 @@ public class rayCast : MonoBehaviour
                     {
                         firstSelect = true;
                     }
-                    if (selection.gameObject.CompareTag("forward ray interaction"))
-                    {
-                        selection.parent.gameObject.SendMessage("Select");
-                    }
-                    else
-                    {
-                        selection.gameObject.SendMessage("Select");
-                    }
-                        previousSelect = selection;
+                    selection.parent.gameObject.SendMessage("Select");
+                    previousSelect = selection;
                     
                 }
             }
