@@ -49,6 +49,7 @@ MonoBehaviour:
   hilightMaterial: {fileID: 2100000, guid: a8fa52ec17e64fe4dbfcca3d6aa402b3, type: 2}
   selectionMaterial: {fileID: 2100000, guid: 5af49661dd1c81c439590877e2042670, type: 2}
   hilightMaterial2: {fileID: 2100000, guid: 0f471dfcf722a2740a51fbf30f3a494d, type: 2}
+  roadSurface: {fileID: 3913013088442793726}
 --- !u!1 &3913013088442793726
 GameObject:
   m_ObjectHideFlags: 0

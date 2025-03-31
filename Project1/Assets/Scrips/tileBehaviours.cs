@@ -16,8 +16,7 @@ public class tileBehaviours : MonoBehaviour
     private GameObject currentBuilding;
     private int woodAvailable;
     private bool occupied;
-    public TMP_Text popup;
-    private TMP_Text popupInstance;
+    public GameObject managementSystem;
     void Start()
     {
         tile = transform.Find("natural tile").gameObject;
@@ -81,9 +80,8 @@ public class tileBehaviours : MonoBehaviour
             if (woodAvailable > 0)
             {
 
-                popupInstance = Instantiate(popup, this.transform);
-                transform.Find("/Management System").gameObject.SendMessage("addWood", woodAvailable);
-                popupInstance.text = "+ " + woodAvailable.ToString() + " Wood";
+                managementSystem.GetComponent<managementSystem>().DisplayPopup(this.transform, "+ " + woodAvailable.ToString() + " Wood");
+                managementSystem.SendMessage("AddWood", woodAvailable);
                 woodAvailable = 0;
             }
             currentBuilding = transform.Find(building).gameObject;
@@ -109,9 +107,8 @@ public class tileBehaviours : MonoBehaviour
                 if (woodAvailable > 0)
                 {
                     tree.SetActive(false);
-                    popupInstance = Instantiate(popup, this.transform);
-                    transform.Find("/Management System").gameObject.SendMessage("addWood", woodAvailable);
-                    popupInstance.text = "+ " + woodAvailable.ToString() + " Wood";
+                    managementSystem.SendMessage("AddWood", woodAvailable);
+                    managementSystem.GetComponent<managementSystem>().DisplayPopup(this.transform, "+ " + woodAvailable.ToString() + " Wood");
                     woodAvailable = 0;
                 }
             }

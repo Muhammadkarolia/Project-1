@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6691204515111470375}
   - component: {fileID: 7876117890359946536}
   - component: {fileID: 7755423654707654743}
-  - component: {fileID: 6121926696862199294}
   - component: {fileID: 6222685153644853753}
   m_Layer: 0
   m_Name: dirt path
@@ -88,21 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6121926696862199294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108032633920206803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4af755e5688238d47abdbc50d122aa5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hilightMaterial: {fileID: 2100000, guid: a8fa52ec17e64fe4dbfcca3d6aa402b3, type: 2}
-  selectionMaterial: {fileID: 2100000, guid: 5af49661dd1c81c439590877e2042670, type: 2}
-  hilightMaterial2: {fileID: 2100000, guid: 0f471dfcf722a2740a51fbf30f3a494d, type: 2}
 --- !u!65 &6222685153644853753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -260,3 +244,4 @@ MonoBehaviour:
   hilightMaterial: {fileID: 2100000, guid: a8fa52ec17e64fe4dbfcca3d6aa402b3, type: 2}
   selectionMaterial: {fileID: 2100000, guid: 5af49661dd1c81c439590877e2042670, type: 2}
   hilightMaterial2: {fileID: 2100000, guid: 0f471dfcf722a2740a51fbf30f3a494d, type: 2}
+  roadSurface: {fileID: 5606940913211263066}

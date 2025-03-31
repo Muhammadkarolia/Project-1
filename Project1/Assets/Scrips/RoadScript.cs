@@ -8,13 +8,12 @@ public class RoadScript : MonoBehaviour
 
     private bool selected;
     private bool hovered;
-    private GameObject roadSurface;
+    public GameObject roadSurface;
     private Material standardMaterial;
     private bool occupied;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        roadSurface = transform.Find("road surface").gameObject;
         standardMaterial = roadSurface.GetComponent<Renderer>().material;
     }
     void Hover()

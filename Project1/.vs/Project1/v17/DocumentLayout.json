@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\tileBehaviours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\tileBehaviours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\rayCast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\rayCast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\materialManagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\materialManagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\purchasableTileBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\purchasableTileBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\popup fade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\popup fade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\constructButtonBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\constructButtonBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\roadConstruct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\roadConstruct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\tileBehaviours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\tileBehaviours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "rayCast.cs",
-              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\rayCast.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\rayCast.cs",
-              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\rayCast.cs",
-              "RelativeToolTip": "Assets\\Scrips\\rayCast.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAFgAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "materialManagement.cs",
+              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\materialManagement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\materialManagement.cs",
+              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\materialManagement.cs",
+              "RelativeToolTip": "Assets\\Scrips\\materialManagement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T18:58:21.816Z",
+              "WhenOpened": "2025-03-30T23:39:58.023Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "purchasableTileBehaviour.cs",
-              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\purchasableTileBehaviour.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\purchasableTileBehaviour.cs",
-              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\purchasableTileBehaviour.cs",
-              "RelativeToolTip": "Assets\\Scrips\\purchasableTileBehaviour.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T18:41:04.697Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "roadConstruct.cs",
-              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\roadConstruct.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\roadConstruct.cs",
-              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\roadConstruct.cs",
-              "RelativeToolTip": "Assets\\Scrips\\roadConstruct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:51:30.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "constructButtonBehaviour.cs",
-              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\constructButtonBehaviour.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\constructButtonBehaviour.cs",
-              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\constructButtonBehaviour.cs",
-              "RelativeToolTip": "Assets\\Scrips\\constructButtonBehaviour.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:48:25.204Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "popup fade.cs",
-              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\popup fade.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\popup fade.cs",
-              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\popup fade.cs",
-              "RelativeToolTip": "Assets\\Scrips\\popup fade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:08:31.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "tileBehaviours.cs",
               "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\tileBehaviours.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\tileBehaviours.cs",
               "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\tileBehaviours.cs",
               "RelativeToolTip": "Assets\\Scrips\\tileBehaviours.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAjwHQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T13:05:05.477Z",
+              "WhenOpened": "2025-03-30T23:30:33.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "purchasableTileBehaviour.cs",
+              "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\purchasableTileBehaviour.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\purchasableTileBehaviour.cs",
+              "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\purchasableTileBehaviour.cs",
+              "RelativeToolTip": "Assets\\Scrips\\purchasableTileBehaviour.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:41:04.697Z",
               "EditorCaption": ""
             }
           ]
