@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingButton : MonoBehaviour
+public class OpenAndClosePanel : MonoBehaviour
 {
     public GameObject uiToToggle; 
     private bool _isUIActive = false;

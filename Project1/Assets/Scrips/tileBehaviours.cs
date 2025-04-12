@@ -12,14 +12,15 @@ public class tileBehaviours : MonoBehaviour
     private bool selected;
     private Material standardMaterial;
     private GameObject buildingObject;
-    private GameObject tile;
+    public GameObject tile;
     private GameObject currentBuilding;
     private int woodAvailable;
     private bool occupied;
+    private bool currentlyDisplaying;
     public GameObject managementSystem;
+    public GameObject buildingPanel;
     void Start()
     {
-        tile = transform.Find("natural tile").gameObject;
         woodAvailable = Random.Range(20, 100);
         if (woodAvailable <75)
         {
@@ -32,7 +33,7 @@ public class tileBehaviours : MonoBehaviour
         tree.SetActive(true);
             
     }
-    void Hover()
+    public void Hover()
     {
         if (!hovered && !selected)
         {
@@ -42,7 +43,7 @@ public class tileBehaviours : MonoBehaviour
         }
         
     }
-    void Unhover()
+    public void Unhover()
     {
         if (hovered && !selected)
         {
@@ -51,12 +52,18 @@ public class tileBehaviours : MonoBehaviour
         }
 
     }
-    void Select()
+    public void Select()
     {
         if (!selected)
         {
             tile.GetComponent<Renderer>().material = selectionMaterial;
             selected = true;
+            if (occupied)
+            {
+                currentBuilding.SendMessage("Display");
+                currentlyDisplaying = true;
+
+            }
         }
         else
         {
@@ -64,12 +71,17 @@ public class tileBehaviours : MonoBehaviour
         }
 
     }
-    void Unselect()
+    public void Unselect()
     {
         if (selected)
         {
             tile.GetComponent<Renderer>().material = standardMaterial;
             selected = false;
+            if (currentlyDisplaying)
+            {
+                buildingPanel.GetComponent<buildingPanelBehaviour>().Activate();
+                currentlyDisplaying = false;
+            }
         }
 
     }
@@ -81,7 +93,7 @@ public class tileBehaviours : MonoBehaviour
             {
 
                 managementSystem.GetComponent<managementSystem>().DisplayPopup(this.transform, "+ " + woodAvailable.ToString() + " Wood");
-                managementSystem.SendMessage("AddWood", woodAvailable);
+                managementSystem.GetComponent<managementSystem>().AddWood(woodAvailable);
                 woodAvailable = 0;
             }
             currentBuilding = transform.Find(building).gameObject;
@@ -107,7 +119,7 @@ public class tileBehaviours : MonoBehaviour
                 if (woodAvailable > 0)
                 {
                     tree.SetActive(false);
-                    managementSystem.SendMessage("AddWood", woodAvailable);
+                    managementSystem.GetComponent<managementSystem>().AddWood(woodAvailable);
                     managementSystem.GetComponent<managementSystem>().DisplayPopup(this.transform, "+ " + woodAvailable.ToString() + " Wood");
                     woodAvailable = 0;
                 }
