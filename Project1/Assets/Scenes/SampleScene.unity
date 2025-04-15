@@ -2951,6 +2951,8 @@ MonoBehaviour:
   timer: {fileID: 128374129}
   productionType: {fileID: 619078179}
   taxation: {fileID: 1109326238}
+  changeButton: {fileID: 947263794}
+  collectButton: {fileID: 46408942}
 --- !u!1001 &587297268
 PrefabInstance:
   m_ObjectHideFlags: 0

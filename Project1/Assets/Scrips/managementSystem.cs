@@ -4,12 +4,12 @@ using TMPro;
 
 public class managementSystem : MonoBehaviour
 {
-    private int wood = 0;
-    private int brick = 0;
-    private int metal = 0;
-    private int glass = 0;
-    private int money = 300;
-    private int happiness = 0;
+    private int wood = 1000;
+    private int brick = 1000;
+    private int metal = 1000;
+    private int glass = 1000;
+    private int money = 3000;
+    private int happiness = 30;
     public TMP_Text woodValue;
     public TMP_Text brickValue;
     public TMP_Text metalValue;

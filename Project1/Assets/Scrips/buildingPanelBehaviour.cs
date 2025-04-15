@@ -8,13 +8,15 @@ public class buildingPanelBehaviour : MonoBehaviour
     public TMP_Text timer;
     public TMP_Text productionType;
     public TMP_Text taxation;
+    public GameObject changeButton;
+    public GameObject collectButton;
     private GameObject linkedBuilding;
     private bool active;
+
     void Start()
     {
         this.gameObject.SetActive(false);
     }
-
     public void Activate(GameObject building)
     {
         if (active)
@@ -27,6 +29,16 @@ public class buildingPanelBehaviour : MonoBehaviour
             this.gameObject.SetActive(true);
             linkedBuilding = building;
             active = true;
+            if (linkedBuilding.name == "factory")
+            {
+                changeButton.SetActive(true);
+                collectButton.SetActive(true);
+            }
+            else
+            {
+                changeButton.SetActive(false);
+                collectButton.SetActive(false);
+            }
         }
     }
     public void Activate()

@@ -18,5 +18,9 @@ public class popupfade : MonoBehaviour
             popup.color = popupColour;
             opacity -= Time.deltaTime * 0.3f;
         }
+        else
+        {
+            Destroy(popup.transform.parent.gameObject);
+        }
     }
 }

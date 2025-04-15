@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Globalization;
+using TMPro;
+using Unity.VisualScripting;
 
 public class factoryBehaviour : MonoBehaviour
 {
@@ -12,8 +14,9 @@ public class factoryBehaviour : MonoBehaviour
     public int taxation = 100;
     public GameObject buildingPanel;
     private buildingPanelBehaviour bpb;
-    private bool displayed;
+    public bool displayed;
     private TextInfo textInfo;
+    private TMP_Text collectPopup;
     void Start()
     {
         textInfo = new CultureInfo("en-UK", false).TextInfo;
@@ -23,6 +26,7 @@ public class factoryBehaviour : MonoBehaviour
     }
     void Update()
     {
+        displayed = this.transform.parent.GetComponent<tileBehaviours>().selected;
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -33,11 +37,14 @@ public class factoryBehaviour : MonoBehaviour
         }
         else
         {
-            if (!collectable)
+            if (displayed)
             {
                 bpb.timer.text = "Ready to collect!";
-                collectable = true;
-                ms.DisplayStaticPopup(this.transform, "ready to collect!");
+                if (!collectable)
+                {
+                    collectable = true;
+                    collectPopup = ms.DisplayStaticPopup(this.transform, "ready to collect!");
+                }
             }
 
         }
@@ -87,13 +94,15 @@ public class factoryBehaviour : MonoBehaviour
                 ms.AddBrick(10);
             }
             timer = productionTime;
+            Destroy(collectPopup.transform.parent.gameObject);
+            ms.DisplayPopup(this.transform, "+ 10" + productionType);
 
         }
     }
     public void Display()
     {
         bpb.Activate(this.gameObject);
-        displayed = true;
+        //displayed = true;
         bpb.buildingName.text = textInfo.ToTitleCase(this.name);
         bpb.productionType.text = productionType;
     }

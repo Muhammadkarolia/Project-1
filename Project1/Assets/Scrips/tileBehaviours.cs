@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
@@ -9,7 +10,7 @@ public class tileBehaviours : MonoBehaviour
     public Material concrete;
     private GameObject tree;
     private bool hovered;
-    private bool selected;
+    public bool selected;
     private Material standardMaterial;
     private GameObject buildingObject;
     public GameObject tile;
@@ -18,9 +19,31 @@ public class tileBehaviours : MonoBehaviour
     private bool occupied;
     private bool currentlyDisplaying;
     public GameObject managementSystem;
+    private managementSystem ms;
     public GameObject buildingPanel;
+    private Dictionary<string, int[]> buildings = new Dictionary<string, int[]>();
+    private int[] house = {20,50,10,100,250};
+    private int[] office = { 80, 200, 200, 400, 1000 };
+    private int[] school = { 60, 150, 40, 300, 1750 };
+    private int[] factory = { 150, 600, 100, 1000, 2500 };
+    private int[] hospital = { 40, 250, 100, 200, 1500 };
+    private int[] policeStation = { 40, 250, 80, 200, 1500 };
+    private int[] fireStation = { 40, 250, 100, 200, 1500 };
+    private int woodRequired;
+    private int metalRequired;
+    private int glassRequired;
+    private int brickRequired;
+    private int moneyRequired;
     void Start()
     {
+        ms = managementSystem.GetComponent<managementSystem>();
+        buildings.Add("house",house);
+        buildings.Add("office", office);
+        buildings.Add("school", school);
+        buildings.Add("factory", factory);
+        buildings.Add("hospital", hospital);
+        buildings.Add("police station", policeStation);
+        buildings.Add("fire station", fireStation);
         woodAvailable = Random.Range(20, 100);
         if (woodAvailable <75)
         {
@@ -59,10 +82,10 @@ public class tileBehaviours : MonoBehaviour
             tile.GetComponent<Renderer>().material = selectionMaterial;
             selected = true;
             if (occupied)
-            {
+            { 
                 currentBuilding.SendMessage("Display");
                 currentlyDisplaying = true;
-
+                
             }
         }
         else
@@ -89,20 +112,35 @@ public class tileBehaviours : MonoBehaviour
     {
         if (selected && !occupied)
         {
-            if (woodAvailable > 0)
+            woodRequired = buildings[building][0];
+            metalRequired = buildings[building][1];
+            glassRequired = buildings[building][2];
+            brickRequired = buildings[building][3];
+            moneyRequired = buildings[building][4];
+            if (woodRequired <= ms.GetWood()+woodAvailable && metalRequired <= ms.GetMetal() && glassRequired <= ms.GetGlass() &&
+                brickRequired <= ms.GetBrick() && moneyRequired <= ms.GetMoney())
             {
+                if (woodAvailable > 0)
+                {
+                    managementSystem.GetComponent<managementSystem>().DisplayPopup(this.transform, "+ " + woodAvailable.ToString() + " Wood");
+                    managementSystem.GetComponent<managementSystem>().AddWood(woodAvailable);
+                    woodAvailable = 0;
+                }
+                ms.AddWood(-woodRequired);
+                ms.AddMetal(-metalRequired);
+                ms.AddGlass(-glassRequired);
+                ms.AddBrick(-brickRequired);
+                ms.AddMoney(-moneyRequired);
+                currentBuilding = transform.Find(building).gameObject;
+                currentBuilding.SetActive(true);
+                tree.SetActive(false);
+                standardMaterial = concrete;
+                occupied = true;
+                Unselect();
+                hovered = false;
 
-                managementSystem.GetComponent<managementSystem>().DisplayPopup(this.transform, "+ " + woodAvailable.ToString() + " Wood");
-                managementSystem.GetComponent<managementSystem>().AddWood(woodAvailable);
-                woodAvailable = 0;
             }
-            currentBuilding = transform.Find(building).gameObject;
-            currentBuilding.SetActive(true);
-            tree.SetActive(false);
-            standardMaterial = concrete;
-            occupied = true;
-            Unselect();
-            hovered = false;
+            
         }
     }
     void DeconstructBuilding()
