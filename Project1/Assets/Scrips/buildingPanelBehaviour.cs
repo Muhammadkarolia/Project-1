@@ -11,7 +11,6 @@ public class buildingPanelBehaviour : MonoBehaviour
     public TMP_Text levelLabel;
     public TMP_Text nextLevelCostLabel;
     public GameObject changeButton;
-    public GameObject upgradeButton;
     public GameObject collectButton;
     private GameObject linkedBuilding;
     private bool active;

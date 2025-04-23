@@ -13,29 +13,29 @@ public class tileBehaviours : MonoBehaviour
     public bool selected;
     public GameObject parkTile;
     private Material standardMaterial;
-    private GameObject buildingObject;
     public GameObject tile;
     private GameObject currentBuilding;
-    private int woodAvailable;
+    public int woodAvailable;
     private bool occupied;
     private bool currentlyDisplaying;
     public GameObject managementSystem;
     private managementSystem ms;
     public GameObject buildingPanel;
     private Dictionary<string, int[]> buildings = new Dictionary<string, int[]>();
-    private int[] house = {30,50,10,100,250};//wood metal glass brick money
-    private int[] office = { 80, 200, 200, 400, 1000 };
-    private int[] school = { 60, 150, 40, 300, 1750 };
-    private int[] factory = { 150, 600, 200, 1000, 2500 };
-    private int[] hospital = { 40, 250, 100, 200, 1500 };
-    private int[] policeStation = { 40, 250, 80, 200, 1500 };
-    private int[] fireStation = { 40, 250, 100, 200, 1500 };
-    private int[] park = { 100, 10, 10, 10, 2000 };
+    private int[] house = {30,50,10,100,250, 0};//wood metal glass brick money workers
+    private int[] office = { 80, 200, 200, 400, 1000, 10 };
+    private int[] school = { 60, 150, 40, 300, 1750, 3 };
+    private int[] factory = { 150, 600, 200, 1000, 2500, 10 };
+    private int[] hospital = { 40, 250, 100, 200, 1500, 5 };
+    private int[] policeStation = { 40, 250, 80, 200, 1500, 3 };
+    private int[] fireStation = { 40, 250, 100, 200, 1500, 3 };
+    private int[] park = { 100, 10, 10, 10, 2000, 1 };
     private int woodRequired;
     private int metalRequired;
     private int glassRequired;
     private int brickRequired;
     private int moneyRequired;
+    private int workersRequired;
     void Awake()
     {
         ms = managementSystem.GetComponent<managementSystem>();
@@ -107,6 +107,7 @@ public class tileBehaviours : MonoBehaviour
             tile.GetComponent<Renderer>().material = standardMaterial;
             parkTile.GetComponent<Renderer>().material = standardMaterial;
             selected = false;
+            hovered = false;
             if (currentlyDisplaying)
             {
                 buildingPanel.GetComponent<buildingPanelBehaviour>().Activate();
@@ -124,8 +125,9 @@ public class tileBehaviours : MonoBehaviour
             glassRequired = buildings[building][2];
             brickRequired = buildings[building][3];
             moneyRequired = buildings[building][4];
+            workersRequired = buildings[building][5];
             if (woodRequired <= ms.GetWood()+woodAvailable && metalRequired <= ms.GetMetal() && glassRequired <= ms.GetGlass() &&
-                brickRequired <= ms.GetBrick() && moneyRequired <= ms.GetMoney())
+                brickRequired <= ms.GetBrick() && moneyRequired <= ms.GetMoney() && workersRequired <= ms.GetWorkers())
             {
                 if (woodAvailable > 0)
                 {
@@ -138,6 +140,7 @@ public class tileBehaviours : MonoBehaviour
                 ms.AddGlass(-glassRequired);
                 ms.AddBrick(-brickRequired);
                 ms.AddMoney(-moneyRequired);
+                ms.AssignWorkers(workersRequired);
                 currentBuilding = transform.Find(building).gameObject;
                 currentBuilding.SetActive(true);
                 if (currentBuilding.name != "park")

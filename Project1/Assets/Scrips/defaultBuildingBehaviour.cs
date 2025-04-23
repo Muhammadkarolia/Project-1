@@ -49,6 +49,8 @@ public class defaultBuildingBehaviour : MonoBehaviour
         bpb.buildingName.text = textInfo.ToTitleCase(this.name);
         bpb.productionType.text = productionType;
         bpb.levelLabel.text = "level: "+level.ToString();
+        bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+        bpb.taxation.text = "$" + taxation.ToString();
     }
     public void Create()
     {
@@ -116,6 +118,8 @@ public class defaultBuildingBehaviour : MonoBehaviour
             level += 1;
             ms.AddTax(20);
             bpb.levelLabel.text = "level: " + level.ToString();
+            bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+            bpb.taxation.text = "$" + taxation.ToString();
         }
     }
 }

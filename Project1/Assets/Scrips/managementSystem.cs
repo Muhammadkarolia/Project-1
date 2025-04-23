@@ -2,14 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TMPro.Examples;
 
 public class managementSystem : MonoBehaviour
 {
-    private int wood = 600;
-    private int brick = 18000;
-    private int metal = 900;
-    private int glass = 500;
-    private int money = 5000;
+    private int wood = 2000;
+    private int brick = 10000;
+    private int metal = 1500;
+    private int glass = 1000;
+    private int money = 8000;
     private int happiness;
     public TMP_Text woodValue;
     public TMP_Text brickValue;
@@ -18,13 +19,17 @@ public class managementSystem : MonoBehaviour
     public TMP_Text moneyValue;
     public TMP_Text happinessValue;
     public TMP_Text incomeLabel;
+    public TMP_Text workersLabel;
+    public TMP_Text totalWorkersLabel;
     public GameObject popup;
     public GameObject staticPopup;
     public GameObject startingFactoryTile;
+    public GameObject startingHouseTile1;
+    public GameObject startingHouseTile2;
     private GameObject popupInstance;
     private TMP_Text accessablePopup;
     private int income = 0;
-    private float timer = 10;
+    private float timer = 5;
     private float happinessBuff = 0.3f;
     private int parks = 0;
     private int factories = 0;
@@ -35,7 +40,9 @@ public class managementSystem : MonoBehaviour
     private int fireStations = 0;
     private int offices = 0;
     private int roads = 0;
-    void Awake()
+    private int workers = 0;
+    private int totalWorkers = 0; 
+    void Start()
     {
         woodValue.text = wood.ToString();
         glassValue.text = glass.ToString();
@@ -43,7 +50,14 @@ public class managementSystem : MonoBehaviour
         brickValue.text = brick.ToString();
         moneyValue.text = money.ToString();
         happinessValue.text = happiness.ToString() + "%";
+        startingHouseTile1.GetComponent<tileBehaviours>().Select();
+        startingHouseTile1.GetComponent<tileBehaviours>().woodAvailable = 0;
+        startingHouseTile1.GetComponent<tileBehaviours>().ConstructBuilding("house");
+        startingHouseTile2.GetComponent<tileBehaviours>().Select();
+        startingHouseTile2.GetComponent<tileBehaviours>().woodAvailable = 0;
+        startingHouseTile2.GetComponent<tileBehaviours>().ConstructBuilding("house");
         startingFactoryTile.GetComponent<tileBehaviours>().Select();
+        startingFactoryTile.GetComponent<tileBehaviours>().woodAvailable = 0;
         startingFactoryTile.GetComponent<tileBehaviours>().ConstructBuilding("factory");
     }
     public void AddWood(int value)
@@ -100,6 +114,18 @@ public class managementSystem : MonoBehaviour
     {
         return brick;
     }
+
+    public int GetWorkers()
+    {
+        if (workers > 0)
+        {
+            return workers;
+        }
+        else
+        {
+            return 0;
+        }
+    }
     public void AddParks(int value)
     {
         parks += value;
@@ -111,6 +137,10 @@ public class managementSystem : MonoBehaviour
     public void AddHouses(int value)
     {
         houses += value;
+        workers += value * 5;
+        totalWorkers += value * 5;
+        workersLabel.text = workers.ToString();
+        totalWorkersLabel.text = totalWorkers.ToString();
     }
     public void AddSchools(int value)
     {
@@ -148,6 +178,12 @@ public class managementSystem : MonoBehaviour
     {
         income += value;
     }
+
+    public void AssignWorkers(int value)
+    {
+        workers -= value;
+        workersLabel.text = workers.ToString();
+    }
     public TMP_Text DisplayPopup(Transform location, string text)
     {
         popupInstance = Instantiate(popup, location.position, location.rotation);
@@ -179,11 +215,11 @@ public class managementSystem : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            timer = 10;
+            timer = 5;
             AddMoney(income + Mathf.RoundToInt(offices*WorkerSurplus()));
             if (happinessBuff > 0)
             {
-                happinessBuff -= 0.0025f;
+                happinessBuff -= 0.00125f;
             }
         }
     }

@@ -32,7 +32,7 @@ public class factoryBehaviour : MonoBehaviour
     }
     void Update()
     {
-        productionTime = baseProductionTime / ms.WorkerSurplus();
+        productionTime = baseProductionTime / (ms.WorkerSurplus()+1);
         if (timer > productionTime)
         {
             timer = productionTime;
@@ -59,7 +59,6 @@ public class factoryBehaviour : MonoBehaviour
             }
 
         }
-        taxation = 100 + (ms.GetHappiness());
     }
     public void Create()
     {
@@ -84,11 +83,11 @@ public class factoryBehaviour : MonoBehaviour
         }
         if (newProductionType == "metal")
         {
-            baseProductionTime = 100;
+            baseProductionTime = 80;
         }
         if (newProductionType == "brick")
         {
-            baseProductionTime = 120;
+            baseProductionTime = 40;
         }
         productionType = newProductionType;
         Update();
@@ -99,15 +98,15 @@ public class factoryBehaviour : MonoBehaviour
     {
         if (collectable)
         {
-            int collectAmount = Mathf.RoundToInt((level * 10) + ((ms.GetSchools() * 2) / ms.GetFactories()));
+            int collectAmount = Mathf.RoundToInt((level * 50) + ((ms.GetSchools() * 2) / ms.GetFactories()));
             collectable = false;
             if (productionType == "wood")
             {
-                ms.AddWood(collectAmount);
+                ms.AddWood(Mathf.RoundToInt(collectAmount * 1.5f));
             }
             if (productionType == "glass")
             {
-                ms.AddGlass(collectAmount);
+                ms.AddGlass(Mathf.RoundToInt(collectAmount*0.5f));
             }
             if (productionType == "metal")
             {
@@ -115,7 +114,7 @@ public class factoryBehaviour : MonoBehaviour
             }
             if (productionType == "brick")
             {
-                ms.AddBrick(collectAmount);
+                ms.AddBrick(Mathf.RoundToInt(collectAmount * 2.5f));
             }
             timer = productionTime;
             Destroy(collectPopup.transform.parent.gameObject);
@@ -133,13 +132,16 @@ public class factoryBehaviour : MonoBehaviour
             ms.AddTax(20);
             bpb.levelLabel.text = "level: " + level.ToString();
             bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+            bpb.taxation.text = "$" + taxation.ToString();
         }
     }
     public void Display()
     {
         bpb.Activate(this.gameObject);
         bpb.levelLabel.text = "level: " + level.ToString();
+        bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
         bpb.buildingName.text = textInfo.ToTitleCase(this.name);
         bpb.productionType.text = productionType;
+        bpb.taxation.text = "$" + taxation.ToString();
     }
 }
