@@ -5,7 +5,9 @@ public class RoadScript : MonoBehaviour
     public Material hilightMaterial;
     public Material selectionMaterial;
     public Material hilightMaterial2;
+    public GameObject managementSystem;
 
+    private managementSystem ms;
     private bool selected;
     private bool hovered;
     public GameObject roadSurface;
@@ -14,6 +16,7 @@ public class RoadScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ms = managementSystem.GetComponent<managementSystem>();
         standardMaterial = roadSurface.GetComponent<Renderer>().material;
     }
     void Hover()
@@ -73,6 +76,8 @@ public class RoadScript : MonoBehaviour
     {
         if (selected && !occupied)
         {
+            ms.AddRoads(1);
+            ms.AddTax(-1);
             roadSurface.SetActive(true);
             roadSurface.GetComponent<Renderer>().material = standardMaterial;
             occupied = true;
@@ -84,6 +89,8 @@ public class RoadScript : MonoBehaviour
     {
         if (selected && occupied)
         {
+            ms.AddRoads(-1);
+            ms.AddTax(1);
             roadSurface.SetActive(false);
             occupied = false;
             selected = false;

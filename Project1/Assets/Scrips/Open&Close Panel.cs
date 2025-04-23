@@ -7,7 +7,7 @@ public class OpenAndClosePanel : MonoBehaviour
     private bool _isUIActive = false;
     public Button myButton;
 
-    void Start()
+    void Awake()
     {
         if (uiToToggle != null)
         {

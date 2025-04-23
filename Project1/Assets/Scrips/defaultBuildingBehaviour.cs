@@ -1,0 +1,121 @@
+using UnityEngine;
+using System.Globalization;
+using TMPro;
+using Unity.VisualScripting;
+
+public class defaultBuildingBehaviour : MonoBehaviour
+{
+    public GameObject managementSystem;
+    private managementSystem ms;
+    public int taxation = 10;
+    public int level = 1;
+    public GameObject buildingPanel;
+    private buildingPanelBehaviour bpb;
+    private TextInfo textInfo;
+    private string productionType;
+    void Awake()
+    {
+        textInfo = new CultureInfo("en-UK", false).TextInfo;
+        bpb = buildingPanel.GetComponent<buildingPanelBehaviour>();
+        ms = managementSystem.GetComponent<managementSystem>();
+        switch (this.name)
+        {
+            case "house":
+                productionType = "workers";
+                taxation = 5;
+                break;
+            case "office":
+                productionType = "money";
+                taxation = 100;
+                break;
+            case "school":
+                productionType = "education";
+                taxation = -20;
+                break;
+            case "park":
+                productionType = "relaxation";
+                taxation = -10;
+                break;
+            default:
+                productionType = "safety";
+                taxation = -10;
+                break;
+        }
+    }
+        
+    public void Display()
+    {
+        bpb.Activate(this.gameObject);
+        bpb.buildingName.text = textInfo.ToTitleCase(this.name);
+        bpb.productionType.text = productionType;
+        bpb.levelLabel.text = "level: "+level.ToString();
+    }
+    public void Create()
+    {
+        switch (this.name)
+        {
+            case "house":
+                ms.AddHouses(1);
+                break;
+            case "office":
+                ms.AddOffices(1);
+                break;
+            case "school":
+                ms.AddSchools(1);
+                break;
+            case "park":
+                ms.AddParks(1);
+                break;
+            case "fire station":
+                ms.AddFireStations(1);
+                break;
+            case "police station":
+                ms.AddPoliceStations(1);
+                break;
+            case "hospital":
+                ms.AddHospitals(1);
+                break;
+        }
+        ms.AddTax(taxation);
+    }
+    public void Destroy()
+    {
+        this.gameObject.SetActive(false);
+        switch (this.name)
+        {
+            case "house":
+                ms.AddHouses(-1);
+                break;
+            case "office":
+                ms.AddOffices(-1);
+                break;
+            case "school":
+                ms.AddSchools(-1);
+                break;
+            case "park":
+                ms.AddParks(-1);
+                break;
+            case "fire station":
+                ms.AddFireStations(-1);
+                break;
+            case "police station":
+                ms.AddPoliceStations(-1);
+                break;
+            case "hospital":
+                ms.AddHospitals(-1);
+                break;
+        }
+        ms.AddTax(-taxation);
+    }
+    public void Upgrade()
+    {
+        if (ms.GetMoney() >= level * 100)
+        {
+            ms.AddMoney(-100 * level);
+            taxation = Mathf.RoundToInt(taxation * 1.2f);
+            level += 1;
+            ms.AddTax(20);
+            bpb.levelLabel.text = "level: " + level.ToString();
+        }
+    }
+}

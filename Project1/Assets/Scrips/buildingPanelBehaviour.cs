@@ -8,21 +8,26 @@ public class buildingPanelBehaviour : MonoBehaviour
     public TMP_Text timer;
     public TMP_Text productionType;
     public TMP_Text taxation;
+    public TMP_Text levelLabel;
+    public TMP_Text nextLevelCostLabel;
     public GameObject changeButton;
+    public GameObject upgradeButton;
     public GameObject collectButton;
     private GameObject linkedBuilding;
     private bool active;
 
     void Start()
     {
+        changeButton.SetActive(false);
+        collectButton.SetActive(false);
+        timer.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
     }
     public void Activate(GameObject building)
     {
         if (active)
         {
-            this.gameObject.SetActive(false);
-            active = false;
+            Activate();
         }
         else
         {
@@ -33,24 +38,21 @@ public class buildingPanelBehaviour : MonoBehaviour
             {
                 changeButton.SetActive(true);
                 collectButton.SetActive(true);
+                timer.gameObject.SetActive(true);
             }
-            else
-            {
-                changeButton.SetActive(false);
-                collectButton.SetActive(false);
-            }
+            
         }
     }
     public void Activate()
     {
         if (active)
         {
+            changeButton.SetActive(false);
+            collectButton.SetActive(false);
+            timer.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
             active = false;
-        }
-        else
-        {
-            Debug.LogError("acivating panel requires building to be passed");
+
         }
     }
     public void ChangeProduction(string newProductionType)//only for factories
@@ -65,5 +67,9 @@ public class buildingPanelBehaviour : MonoBehaviour
     public void Unselect()
     {
         linkedBuilding.transform.parent.GetComponent<tileBehaviours>().Unselect();
+    }
+    public void Upgrade()
+    {
+        linkedBuilding.SendMessage("Upgrade");
     }
 }

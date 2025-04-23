@@ -9,23 +9,34 @@ public class factoryBehaviour : MonoBehaviour
     private managementSystem ms;
     private bool collectable;
     private float timer = 60;
+    private float baseProductionTime = 60;
     private float productionTime = 60;
     public string productionType = "wood";
-    public int taxation = 100;
+    public int taxation = 20;
     public GameObject buildingPanel;
     private buildingPanelBehaviour bpb;
-    public bool displayed;
+    private bool displayed;
     private TextInfo textInfo;
     private TMP_Text collectPopup;
-    void Start()
+
+    public int level = 1;
+    void Awake()
     {
         textInfo = new CultureInfo("en-UK", false).TextInfo;
         bpb = buildingPanel.GetComponent<buildingPanelBehaviour>();
         ms = managementSystem.GetComponent<managementSystem>();
-        ms.AddHappiness(-5);
+    }
+    void Start()
+    {
+        timer = productionTime;
     }
     void Update()
     {
+        productionTime = baseProductionTime / ms.WorkerSurplus();
+        if (timer > productionTime)
+        {
+            timer = productionTime;
+        }
         displayed = this.transform.parent.GetComponent<tileBehaviours>().selected;
         if (timer > 0)
         {
@@ -50,25 +61,37 @@ public class factoryBehaviour : MonoBehaviour
         }
         taxation = 100 + (ms.GetHappiness());
     }
+    public void Create()
+    {
+        ms.AddFactories(1);
+        ms.AddTax(taxation);
+    }
+    public void Destroy()
+    {
+        this.gameObject.SetActive(false);
+        ms.AddFactories(-1);
+        ms.AddTax(-taxation);
+    }
     public void ChangeProduction(string newProductionType)
     {
         if (newProductionType == "wood")
         {
-            productionTime = 60;
+            baseProductionTime = 60;
         }
         if (newProductionType == "glass")
         {
-            productionTime = 80;
+            baseProductionTime = 80;
         }
         if (newProductionType == "metal")
         {
-            productionTime = 100;
+            baseProductionTime = 100;
         }
         if (newProductionType == "brick")
         {
-            productionTime = 120;
+            baseProductionTime = 120;
         }
         productionType = newProductionType;
+        Update();
         timer = productionTime;
         bpb.productionType.text = productionType;
     }
@@ -76,33 +99,46 @@ public class factoryBehaviour : MonoBehaviour
     {
         if (collectable)
         {
+            int collectAmount = Mathf.RoundToInt((level * 10) + ((ms.GetSchools() * 2) / ms.GetFactories()));
             collectable = false;
             if (productionType == "wood")
             {
-                ms.AddWood(10);
+                ms.AddWood(collectAmount);
             }
             if (productionType == "glass")
             {
-                ms.AddGlass(10);
+                ms.AddGlass(collectAmount);
             }
             if (productionType == "metal")
             {
-                ms.AddMetal(10);
+                ms.AddMetal(collectAmount);
             }
             if (productionType == "brick")
             {
-                ms.AddBrick(10);
+                ms.AddBrick(collectAmount);
             }
             timer = productionTime;
             Destroy(collectPopup.transform.parent.gameObject);
-            ms.DisplayPopup(this.transform, "+ 10" + productionType);
+            ms.DisplayPopup(this.transform, "+ " + collectAmount.ToString() + " " + productionType);
 
+        }
+    }
+    public void Upgrade()
+    {
+        if (ms.GetMoney() >= level * 100)
+        {
+            ms.AddMoney(-100 * level);
+            taxation = Mathf.RoundToInt(taxation*1.2f);
+            level += 1;
+            ms.AddTax(20);
+            bpb.levelLabel.text = "level: " + level.ToString();
+            bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
         }
     }
     public void Display()
     {
         bpb.Activate(this.gameObject);
-        //displayed = true;
+        bpb.levelLabel.text = "level: " + level.ToString();
         bpb.buildingName.text = textInfo.ToTitleCase(this.name);
         bpb.productionType.text = productionType;
     }
