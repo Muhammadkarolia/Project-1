@@ -7,12 +7,13 @@ public class defaultBuildingBehaviour : MonoBehaviour
 {
     public GameObject managementSystem;
     private managementSystem ms;
-    public int taxation = 10;
+    private int taxation = 10;
     public int level = 1;
     public GameObject buildingPanel;
     private buildingPanelBehaviour bpb;
     private TextInfo textInfo;
     private string productionType;
+    private int bonus;
     void Awake()
     {
         textInfo = new CultureInfo("en-UK", false).TextInfo;
@@ -114,9 +115,17 @@ public class defaultBuildingBehaviour : MonoBehaviour
         if (ms.GetMoney() >= level * 100)
         {
             ms.AddMoney(-100 * level);
-            taxation = Mathf.RoundToInt(taxation * 1.2f);
-            level += 1;
-            ms.AddTax(20);
+            if (taxation > 0)
+            {
+                ms.AddTax(Mathf.RoundToInt(-taxation * 0.8f) + taxation);
+                taxation = Mathf.RoundToInt(taxation * 0.8f);
+            }
+            else
+            {
+                ms.AddTax(Mathf.RoundToInt(taxation * 1.2f) - taxation);
+                taxation = Mathf.RoundToInt(taxation * 1.2f);
+            }
+                level += 1;
             bpb.levelLabel.text = "level: " + level.ToString();
             bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
             bpb.taxation.text = "$" + taxation.ToString();

@@ -30,7 +30,7 @@ public class managementSystem : MonoBehaviour
     private TMP_Text accessablePopup;
     private int income = 0;
     private float timer = 5;
-    private float happinessBuff = 0.3f;
+    private float happinessBuff = 0.5f;
     private int parks = 0;
     private int factories = 0;
     private int houses = 0;
@@ -200,11 +200,11 @@ public class managementSystem : MonoBehaviour
     }
     public float WorkerSurplus()
     {
-        return Mathf.Sqrt((happiness/10) * Mathf.Sqrt((houses * ((schools / 5)+1)) + (roads/20) + 1) / ((factories*2) + parks + offices + fireStations + hospitals + policeStations + (roads / 10) + 1));
+        return Mathf.Sqrt((happiness/10) * Mathf.Sqrt(((totalWorkers- workers) * ((schools / 5)+1)) + (roads/20) + 1) / ((factories*2) + (parks/2) + offices + fireStations + hospitals + policeStations + (roads / 10) + 1));
     }
     private void Update()
     {
-        happiness = Mathf.RoundToInt(((((schools / 5) + parks + ((fireStations * hospitals * policeStations*2) / (houses+1)) + (roads / 20)) +happinessBuff) / ((houses/2) + (factories * 2) + offices + 1))*100);
+        happiness = Mathf.RoundToInt(((((schools / 5) + parks + ((fireStations * hospitals * policeStations*2) / (houses+1)) + (roads / 20)) +happinessBuff) / (Mathf.Sqrt(houses) + (factories * 2) + offices + ((totalWorkers-workers)/20) + 1))*100);
         if (happiness > 100)
         {
             happiness = 100;

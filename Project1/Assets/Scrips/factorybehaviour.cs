@@ -98,7 +98,7 @@ public class factoryBehaviour : MonoBehaviour
     {
         if (collectable)
         {
-            int collectAmount = Mathf.RoundToInt((level * 50) + ((ms.GetSchools() * 2) / ms.GetFactories()));
+            int collectAmount = Mathf.RoundToInt((level * 50) + ((ms.GetSchools() * 20) / ms.GetFactories()));
             collectable = false;
             if (productionType == "wood")
             {
