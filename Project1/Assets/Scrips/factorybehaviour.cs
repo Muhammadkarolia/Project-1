@@ -14,6 +14,8 @@ public class factoryBehaviour : MonoBehaviour
     public string productionType = "wood";
     public int taxation = 20;
     public GameObject buildingPanel;
+    public GameObject[] factoryModels;
+    private int currentFactory;
     private buildingPanelBehaviour bpb;
     private bool displayed;
     private TextInfo textInfo;
@@ -98,23 +100,26 @@ public class factoryBehaviour : MonoBehaviour
     {
         if (collectable)
         {
-            int collectAmount = Mathf.RoundToInt((level * 50) + ((ms.GetSchools() * 20) / ms.GetFactories()));
+            float collectAmount = Mathf.RoundToInt((level * 50) + ((ms.GetSchools() * 20) / ms.GetFactories()));
             collectable = false;
             if (productionType == "wood")
             {
-                ms.AddWood(Mathf.RoundToInt(collectAmount * 1.5f));
+                collectAmount *= 1.5f;
+                ms.AddWood(Mathf.RoundToInt(collectAmount));
             }
             if (productionType == "glass")
             {
-                ms.AddGlass(Mathf.RoundToInt(collectAmount*0.5f));
+                collectAmount *= 0.5f;
+                ms.AddGlass(Mathf.RoundToInt(collectAmount));
             }
             if (productionType == "metal")
             {
-                ms.AddMetal(collectAmount);
+                ms.AddMetal(Mathf.RoundToInt(collectAmount));
             }
             if (productionType == "brick")
             {
-                ms.AddBrick(Mathf.RoundToInt(collectAmount * 2.5f));
+                collectAmount *= 2.5f;
+                ms.AddBrick(Mathf.RoundToInt(collectAmount));
             }
             timer = productionTime;
             Destroy(collectPopup.transform.parent.gameObject);
@@ -129,6 +134,12 @@ public class factoryBehaviour : MonoBehaviour
             ms.AddMoney(-100 * level);
             taxation = Mathf.RoundToInt(taxation*1.2f);
             level += 1;
+            if (level % 5 == 0 && currentFactory < factoryModels.Length-1) 
+            {
+                factoryModels[currentFactory].SetActive(false);
+                factoryModels[currentFactory+1].SetActive(true);
+                currentFactory++;
+            }
             ms.AddTax(20);
             bpb.levelLabel.text = "level: " + level.ToString();
             bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
