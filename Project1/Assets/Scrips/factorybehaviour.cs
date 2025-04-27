@@ -34,7 +34,7 @@ public class factoryBehaviour : MonoBehaviour
     }
     void Update()
     {
-        productionTime = baseProductionTime / (ms.WorkerSurplus()+1);
+        productionTime = baseProductionTime / Mathf.Pow(ms.WorkerSurplus()+1, 0.3f);
         if (timer > productionTime)
         {
             timer = productionTime;
@@ -129,9 +129,10 @@ public class factoryBehaviour : MonoBehaviour
     }
     public void Upgrade()
     {
-        if (ms.GetMoney() >= level * 100)
+        if (ms.GetMoney() >= Mathf.Pow((level * 15), 1.5f))
         {
-            ms.AddMoney(-100 * level);
+            ms.AddMoney(Mathf.RoundToInt(Mathf.Pow((level * 15), 1.5f))*-1);
+            ms.AddTax(Mathf.RoundToInt((taxation * 1.2f) - taxation));
             taxation = Mathf.RoundToInt(taxation*1.2f);
             level += 1;
             if (level % 5 == 0 && currentFactory < factoryModels.Length-1) 
@@ -140,9 +141,8 @@ public class factoryBehaviour : MonoBehaviour
                 factoryModels[currentFactory+1].SetActive(true);
                 currentFactory++;
             }
-            ms.AddTax(20);
             bpb.levelLabel.text = "level: " + level.ToString();
-            bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+            bpb.nextLevelCostLabel.text = "next level: $" + Mathf.RoundToInt(Mathf.Pow((level * 15), 1.5f)).ToString();
             bpb.taxation.text = "$" + taxation.ToString();
         }
     }
@@ -150,7 +150,7 @@ public class factoryBehaviour : MonoBehaviour
     {
         bpb.Activate(this.gameObject);
         bpb.levelLabel.text = "level: " + level.ToString();
-        bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+        bpb.nextLevelCostLabel.text = "next level: $" + Mathf.RoundToInt(Mathf.Pow((level * 15), 1.5f)).ToString();
         bpb.buildingName.text = textInfo.ToTitleCase(this.name);
         bpb.productionType.text = productionType;
         bpb.taxation.text = "$" + taxation.ToString();

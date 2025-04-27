@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\factorybehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\managementSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\managementSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\tutorialBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\tutorialBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\managementSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scrips\\managementSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\defaultBuildingBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "managementSystem.cs",
               "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\managementSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\managementSystem.cs",
@@ -51,12 +51,11 @@
               "ViewState": "AgIAAMUAAAAAAAAAAAAcwN8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-12T18:23:55.58Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "tutorialBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\tutorialBehaviour.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\tutorialBehaviour.cs",
@@ -64,7 +63,8 @@
               "RelativeToolTip": "Assets\\Scrips\\tutorialBehaviour.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T12:14:58.612Z"
+              "WhenOpened": "2025-04-24T12:14:58.612Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -86,7 +86,7 @@
               "RelativeDocumentMoniker": "Assets\\Scrips\\factorybehaviour.cs",
               "ToolTip": "C:\\Users\\Lirael\\OneDrive\\Documents\\GitHub\\Project-1\\Project1\\Assets\\Scrips\\factorybehaviour.cs",
               "RelativeToolTip": "Assets\\Scrips\\factorybehaviour.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T23:25:49.494Z",
               "EditorCaption": ""

@@ -50,7 +50,7 @@ public class defaultBuildingBehaviour : MonoBehaviour
         bpb.buildingName.text = textInfo.ToTitleCase(this.name);
         bpb.productionType.text = productionType;
         bpb.levelLabel.text = "level: "+level.ToString();
-        bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+        bpb.nextLevelCostLabel.text = "next level: $" + Mathf.RoundToInt(Mathf.Pow((level * 15), 1.5f)).ToString();
         bpb.taxation.text = "$" + taxation.ToString();
     }
     public void Create()
@@ -112,10 +112,10 @@ public class defaultBuildingBehaviour : MonoBehaviour
     }
     public void Upgrade()
     {
-        if (ms.GetMoney() >= level * 100)
+        if (ms.GetMoney() >= Mathf.Pow((level * 15), 1.5f))
         {
-            ms.AddMoney(-100 * level);
-            if (taxation > 0)
+            ms.AddMoney(Mathf.RoundToInt(Mathf.Pow((level * 15), 1.5f))*-1);
+            if (taxation < 0)
             {
                 ms.AddTax(Mathf.RoundToInt(-taxation * 0.8f) + taxation);
                 taxation = Mathf.RoundToInt(taxation * 0.8f);
@@ -127,7 +127,7 @@ public class defaultBuildingBehaviour : MonoBehaviour
             }
                 level += 1;
             bpb.levelLabel.text = "level: " + level.ToString();
-            bpb.nextLevelCostLabel.text = "next level: $" + (level * 100).ToString();
+            bpb.nextLevelCostLabel.text = "next level: $" + Mathf.RoundToInt(Mathf.Pow((level * 15), 1.5f)).ToString();
             bpb.taxation.text = "$" + taxation.ToString();
         }
     }
