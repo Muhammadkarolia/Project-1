@@ -75,6 +75,7 @@ public class factoryBehaviour : MonoBehaviour
     }
     public void ChangeProduction(string newProductionType)
     {
+        Collect();
         if (newProductionType == "wood")
         {
             baseProductionTime = 60;
